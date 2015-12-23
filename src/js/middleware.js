@@ -1,4 +1,7 @@
 import diff from 'immutablediff';
+import Api from './api';
+
+const api_instance = new Api('http://localhost:3000/api/v1/');
 
 const logger = store => next => action => {
   console.log('dispatching', action)
@@ -14,7 +17,11 @@ const api = store => next => action => {
   const nextState = store.getState();
   const nextTodos = nextState.todos.todos;
 
-  console.log('Diff', diff(todos, nextTodos).toJS());
+  const diffs = diff(todos, nextTodos).toJS();
+
+  console.log('Diff', diffs);
+
+  api_instance.handle_action(action, diffs, store.dispatch);
 
   return result;
 }

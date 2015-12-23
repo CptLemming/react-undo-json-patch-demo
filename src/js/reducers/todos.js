@@ -21,7 +21,7 @@ const structure = Immstruct.withHistory('todos', historyLimit, {
 var todosCursor = structure.cursor(['todos']);
 var selectedCursor = structure.cursor(['selected']);
 
-let nextId = 0;
+let nextId = 1;
 
 function todoReducer(state=todosCursor, action) {
   switch (action.type) {

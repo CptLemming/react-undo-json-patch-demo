@@ -6,6 +6,8 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from './webpack.config.js';
 import http from 'http';
+import Immutable from 'immutable';
+import patch from 'immutablepatch';
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
@@ -35,10 +37,24 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-// API GOES HERE
-var router = express.Router();
+// API
+let todos = Immutable.fromJS([]);
+let router = express.Router();
 
-app.use('/api', router);
+router.get('/todos', function(req, res) {
+  const data = {
+    data: todos.toJS()
+  };
+  res.json(data);
+});
+
+router.post('/todos', function(req, res) {
+  const diffs = Immutable.fromJS(req.body.diffs);
+  todos = patch(todos, diffs);
+  return res.status(204).send();
+});
+
+app.use('/api/v1', router);
 
 // Catch all
 app.get('*', function response(req, res) {

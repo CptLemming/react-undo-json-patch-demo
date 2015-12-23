@@ -3,6 +3,7 @@ function add_todo(name) {
   return {
     type: ADD_TODO,
     payload: {
+      api: true,
       name
     }
   };
@@ -23,6 +24,7 @@ function update_todo(id, name) {
   return {
     type: UPDATE_TODO,
     payload: {
+      api: true,
       id,
       name
     }
@@ -34,6 +36,7 @@ function toggle_complete_todo(id) {
   return {
     type: TOGGLE_COMPLETE_TODO,
     payload: {
+      api: true,
       id
     }
   };
@@ -42,21 +45,30 @@ function toggle_complete_todo(id) {
 export const CLEAR_COMPLETED_TODOS = 'CLEAR_COMPLETED_TODOS';
 function clear_completed_todos() {
   return {
-    type: CLEAR_COMPLETED_TODOS
+    type: CLEAR_COMPLETED_TODOS,
+    payload: {
+      api: true
+    }
   };
 }
 
 export const UNDO = 'UNDO';
 function undo() {
   return {
-    type: UNDO
+    type: UNDO,
+    payload: {
+      api: true
+    }
   };
 }
 
 export const REDO = 'REDO';
 function redo() {
   return {
-    type: REDO
+    type: REDO,
+    payload: {
+      api: true
+    }
   };
 }
 

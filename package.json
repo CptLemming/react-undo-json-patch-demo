@@ -17,6 +17,8 @@
     "immstruct": "^2.0.0",
     "immutable": "^3.7.6",
     "immutablediff": "^0.4.2",
+    "immutablepatch": "^0.2.2",
+    "isomorphic-fetch": "^2.2.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.3",
