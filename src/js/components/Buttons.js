@@ -25,6 +25,7 @@ class Buttons extends React.Component {
       <ul>
         <li><button type="button" onClick={this.props.actions.undo.bind(this)}>Undo</button></li>
         <li><button type="button" onClick={this.props.actions.redo.bind(this)}>Redo</button></li>
+        <li><button type="button" onClick={this.props.actions.clear_completed_todos.bind(this)}>Clear</button></li>
       </ul>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Todos from '../components/Todos';
+import { Router } from 'react-router';
+import routes from '../routes';
 
 export default class App extends React.Component {
   static propTypes = {
@@ -13,11 +14,11 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <Provider store={this.props.store}>
-          <Todos />
-        </Provider>
-      </div>
+      <Provider store={this.props.store}>
+        <Router history={this.props.history}>
+          {routes}
+        </Router>
+      </Provider>
     );
   }
 }

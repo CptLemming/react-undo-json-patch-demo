@@ -1,5 +1,5 @@
-var Immutable = require('immutable');
-var Immstruct = require('immstruct');
+import Immutable from 'immutable';
+import Immstruct from 'immstruct';
 
 import { combineReducers } from 'redux';
 import {
@@ -14,21 +14,23 @@ import {
 
 const historyLimit = 10;
 const structure = Immstruct.withHistory('todos', historyLimit, {
-  'selected': undefined,
-  'todos': []
+  selected: undefined,
+  todos: [],
+  nextId: 1
 });
 
-var todosCursor = structure.cursor(['todos']);
-var selectedCursor = structure.cursor(['selected']);
-
-let nextId = 1;
+let todosCursor = structure.cursor(['todos']);
+let selectedCursor = structure.cursor(['selected']);
+let nextIdReference = structure.reference(['nextId']);
 
 function todoReducer(state=todosCursor, action) {
   switch (action.type) {
     case ADD_TODO:
+      let nextId = nextIdReference.cursor().deref();
+      nextIdReference.cursor().update((value) => value + 1);
       return state.push(Immutable.fromJS({
-        'id': nextId++,
-        'name': action.payload.name,
+        id: nextId,
+        name: action.payload.name,
         complete: false
       }));
     case UPDATE_TODO:

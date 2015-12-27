@@ -29,7 +29,7 @@ class TodoList extends React.Component {
     return (
       <ul>
         {this.props.todos.map((todo, i) => {
-          return <li key={i}><TodoListItem todo={todo} onCompleteChange={this.onCompleteChange.bind(this, todo.id)} /></li>;
+          return <li key={i}><TodoListItem todo={todo} onCompleteChange={this.onCompleteChange.bind(this, todo.get('id'))} /></li>;
         })}
       </ul>
     );

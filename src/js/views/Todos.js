@@ -1,7 +1,7 @@
 import React from 'react';
-import Buttons from './Buttons';
-import NewTodo from './NewTodo';
-import TodoList from './TodoList';
+import Buttons from '../components/Buttons';
+import NewTodo from '../components/NewTodo';
+import TodoList from '../components/TodoList';
 
 class Todos extends React.Component {
   constructor(props) {

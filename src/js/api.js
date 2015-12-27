@@ -22,7 +22,7 @@ class Api {
         diffs
       })
     })
-    .then(response => response.json())
+    // .then(response => response.json())
     .then(json => {
       const success = {
         type: action.type + '_SUCCESS',
