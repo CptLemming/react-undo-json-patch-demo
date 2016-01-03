@@ -1,6 +1,19 @@
 # React Undo Json Patch Demo
 
-Using middleware create diffs between `current` and `next` state and send to an API. The API will apply the diffs to a local copy of the data, making it available for retrieval later by another client or on page refresh.
+## Django Map Editor
+
+Using Django Rest Framework implement a JSON Patch interface. Create a Map editor to showcase the implementation.
+
+### Server
+
+```
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+open http://localhost:8000/api/v1/map/
+```
+
+### Client
 
 ```
 npm install

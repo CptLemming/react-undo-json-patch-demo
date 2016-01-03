@@ -1,0 +1,59 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.editor-table {
+    border-collapse: collapse;
+
+    tr {
+        td, th {
+            height: 25px;
+            width: 25px;
+            text-align: center;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        td.blank {
+            background: url(/images/blank.png) #D3D3D3;
+            background-size: 25px 25px;
+        }
+
+        td.grass {
+            background: url(/images/grass.png) #D3D3D3;
+            background-size: 25px 25px;
+        }
+
+        td.water {
+            background: url(/images/water.png) #D3D3D3;
+            background-size: 25px 25px;
+        }
+
+        td.rock {
+            background: url(/images/boulder.png) #D3D3D3;
+            background-size: 25px 25px;
+        }
+
+        td.tree {
+            background: url(/images/tree.png) #51DC5A;
+            background-size: 25px 25px;
+            color: #FFF;
+            font-weight: bold;
+        }
+
+        td:hover {
+            cursor: crosshair;
+            border: 1px solid #6FB0DE;
+        }
+    }
+}
